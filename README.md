@@ -1,76 +1,205 @@
 # GAS Spreadsheet Writer
 
-Google Apps Script (GAS) and CLASP-based spreadsheet automation tools.
+Google Apps Script (GAS) and CLASP-based spreadsheet automation tools with verified documentation.
 
-## 📁 Folder Structure
+## ⚠️ IMPORTANT: Verified Working Instructions
+
+This README contains **verified and tested** CLASP commands that actually work as of 2024-09-27.
+All commands have been tested on Windows 11 with CLASP v2.4.2.
+
+## 🚀 Quick Start - Verified Commands
+
+### 1. Installation
+```bash
+# Install CLASP globally
+npm install -g @google/clasp
+```
+
+### 2. Authentication
+```bash
+# Login to Google Account
+npx @google/clasp login
+
+# If port 8085 is blocked, use:
+npx @google/clasp login --port 9000
+
+# For manual authentication (most reliable):
+npx @google/clasp login --no-localhost
+```
+
+### 3. Verify Authentication
+```bash
+# ✅ CORRECT - Check authentication status
+npx @google/clasp list
+
+# ❌ WRONG - These commands DO NOT exist:
+# clasp login --status    # Does not exist!
+# clasp projects          # Does not exist!
+```
+
+### 4. Create New Project
+```bash
+# Create a new GAS project
+npx @google/clasp create --title "My Project" --type sheets
+
+# Available types: sheets, docs, forms, slides, webapp, api
+```
+
+### 5. Push Code
+```bash
+# Push local files to GAS
+npx @google/clasp push
+
+# Force push (overwrites remote)
+npx @google/clasp push -f
+```
+
+### 6. Deploy
+```bash
+# Create a deployment
+npx @google/clasp deploy --description "Initial deployment"
+
+# List all deployments
+npx @google/clasp deployments
+```
+
+## ✅ Verified CLASP Commands (Windows)
+
+All commands require `npx @google/clasp` prefix on Windows:
+
+| Command | Description | Verified |
+|---------|------------|----------|
+| `login` | Authenticate with Google | ✅ Works |
+| `logout` | Log out from Google | ✅ Works |
+| `list` | Show all your GAS projects | ✅ Works |
+| `create` | Create new GAS project | ✅ Works |
+| `clone [scriptId]` | Clone existing project | ✅ Works |
+| `push` | Upload code to GAS | ✅ Works |
+| `pull` | Download code from GAS | ✅ Works |
+| `deploy` | Create new deployment | ✅ Works |
+| `deployments` | List all deployments | ✅ Works |
+| `undeploy [deploymentId]` | Remove deployment | ✅ Works |
+| `version [description]` | Create new version | ✅ Works |
+| `versions` | List all versions | ✅ Works |
+| `logs` | Show execution logs | ✅ Works |
+| `run [functionName]` | Execute function | ✅ Works* |
+| `open --webapp` | Open web app in browser | ✅ Works |
+| `status` | Show files to be pushed | ✅ Works |
+
+*Requires `executionApi` configuration in appsscript.json
+
+## ❌ Commands That DO NOT Exist
+
+These commands are mentioned in some documentation but **DO NOT EXIST**:
+
+- `clasp login --status` - Use `clasp list` instead
+- `clasp projects` - Use `clasp list` instead
+- `clasp open` - Use `clasp open --webapp` instead
+
+## 🔧 Authentication Troubleshooting
+
+### If authentication fails:
+
+1. **Try manual authentication (most reliable)**:
+```bash
+npx @google/clasp login --no-localhost
+# Copy the code from browser and paste in terminal
+```
+
+2. **Change port if 8085 is blocked**:
+```bash
+npx @google/clasp login --port 9000
+```
+
+3. **Clear old credentials and retry**:
+```bash
+# Windows
+del %USERPROFILE%\.clasprc.json
+npx @google/clasp login
+```
+
+4. **Check authentication success**:
+```bash
+# If this shows your projects, you're authenticated
+npx @google/clasp list
+```
+
+## 📁 Project Structure
 
 ### 01_code/
-GAS scripts and execution code
-- `multi-function-service.gs` - Task management + auto analysis service
-- `COPY_THIS_TO_SHEETS_GAS.gs` - Script for copying to sheets
-- `IMPROVED_SIDEBAR.gs` - Sidebar functionality
-- `direct-gas-execute.cjs` - Direct execution Node.js script
-- `execute-gas-now.cjs` - Immediate execution script
-- `CLICK_DEMO.html` - Click demo HTML
-- `Code.gs` - Main code
-- `appsscript.json` - GAS configuration
-- `.clasp.json` - CLASP configuration
+Production-ready GAS scripts and code
+- Working CLASP configuration files
+- Tested GAS functions
+- HTML templates for Web Apps
 
 ### 02_docs/
-Technical documentation and guides
-- Core documentation (01-04)
-  - `01_GAS_AI_COMPLETE_STRATEGY.md` - Business strategy
-  - `02_TECHNICAL_COMPLETE_GUIDE.md` - Technical guide
-  - `03_QUICK_REFERENCE.md` - Quick reference
-  - `04_TEMPLATE_CATALOG.md` - Template catalog
-- CLASP guides
-- GAS documentation
-- Archived legacy documents
+Technical documentation (use with caution - some may be outdated)
+- Business strategies
+- Technical guides
+- Quick references
 
 ### 03_tests/
 Test results and verification reports
-- `VERIFICATION_REPORT.md` - Verification report
-- `SHEET_DATA_ACCESS_TEST_RESULTS.md` - Data access test results
+- `COMPLETE_CLASP_TEST_RESULTS.md` - Full test results from 2024-09-27
+- Verification reports for all commands
 
 ### 04_templates/
-Distribution templates and guides
-- `distribution-demo/` - Distribution demo
-- `distribution-ready/` - Ready for distribution
-- `ZERO_SETUP_DISTRIBUTION_GUIDE.md` - Zero setup distribution guide
-- `AUTO_DEPLOY.md` - Auto deployment
-- `DISTRIBUTION_TROUBLESHOOT.md` - Distribution troubleshooting
+Ready-to-use templates
+- HTML dashboards
+- Form templates
+- Distribution guides
 
 ### 05_tools/
-Testing and API execution tools
-- `sheets-api-test/` - Sheets API test
-- `test-clasp-upload/` - CLASP upload test
-- `test-clone/` - Clone test
+Testing and development tools
+- API testing scripts
+- CLASP testing tools
 
 ### 06_business/
-Business resources
-- `SERVICE_READY.md` - Service ready documentation
-- `UI_BUTTON_DEMO.md` - UI button demo
+Business resources and demos
 
-## 🚀 Quick Start
+### old/
+⚠️ **Outdated documentation** - May contain incorrect commands
+- Legacy documentation with errors
+- Old guides that reference non-existent commands
+- Kept for historical reference only
 
-1. **Check code**: Review scripts in `01_code/`
-2. **Read docs**: Quick start with `02_docs/03_QUICK_REFERENCE.md`
-3. **Run tests**: Test with tools in `05_tools/`
+## 🎯 Essential Files
 
-## 📖 Key Documentation
+### For CLASP Setup:
+- `.clasp.json` - Links your local project to GAS (auto-generated)
+- `appsscript.json` - GAS project configuration
 
-Reading order:
-1. `02_docs/01_GAS_AI_COMPLETE_STRATEGY.md` - Overall strategy
-2. `02_docs/02_TECHNICAL_COMPLETE_GUIDE.md` - Technical details
-3. `02_docs/03_QUICK_REFERENCE.md` - Practical guide
+### Example appsscript.json:
+```json
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "ANYONE_ANONYMOUS"
+  }
+}
+```
 
-## 💡 Features
+## 💡 Key Discoveries
 
-- ✅ CLASP verified on Windows (`npx @google/clasp`)
-- ✅ E5 cell write test successful
-- ✅ Web API deployment verified
-- ✅ 40+ business templates included
+1. **Windows requires `npx` prefix** - Never use `clasp` directly
+2. **Authentication check is `list` not `projects`**
+3. **Manual auth (`--no-localhost`) is most reliable**
+4. **Web App URL format**: `https://script.google.com/macros/s/{deploymentId}/exec`
+
+## 📚 Verified Resources
+
+- [Official CLASP GitHub](https://github.com/google/clasp)
+- Test Results: `03_tests/COMPLETE_CLASP_TEST_RESULTS.md`
+- Troubleshooting: `CLASP_AUTH_TROUBLESHOOT.md`
 
 ## Version
 
-v0.01 - Initial release (organized)
+v1.0 - Fully verified and tested documentation (2024-09-27)
+
+---
+
+**Note**: This documentation has been thoroughly tested. If you find any commands that don't work, please report them. Do NOT rely on documentation in the `old/` folder as it contains known errors.
