@@ -6,6 +6,7 @@
 - `npx @google/clasp login` 実行後、ブラウザで認証してもCLIに戻らない
 - "認証プロセスが完了できません" エラー
 - ブラウザで認証後、CLIが反応しない
+- **`ERR_CONNECTION_REFUSED`エラーが表示される**
 
 ## ✅ 解決方法
 
@@ -105,7 +106,20 @@ npx @google/clasp login
 npx @google/clasp login --port 8087
 ```
 
-### エラー4: "Could not read API credentials"
+### エラー4: "ERR_CONNECTION_REFUSED"
+```bash
+# ローカルホストへの接続が拒否される
+# このエラーが最も一般的！
+# 解決策1: ローカルホストを使わない認証（最も確実）
+npx @google/clasp login --no-localhost
+
+# 解決策2: 別のポートを試す
+npx @google/clasp login --port 9000
+npx @google/clasp login --port 8086
+npx @google/clasp login --port 3000
+```
+
+### エラー5: "Could not read API credentials"
 ```bash
 # 認証ファイルが壊れている
 # 解決策: ファイル削除して再認証

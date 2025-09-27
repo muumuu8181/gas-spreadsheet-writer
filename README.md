@@ -98,9 +98,22 @@ These commands are mentioned in some documentation but **DO NOT EXIST**:
 
 ## 🔧 Authentication Troubleshooting
 
-### If authentication fails:
+### Common Error: ERR_CONNECTION_REFUSED
 
-1. **Try manual authentication (most reliable)**:
+If you see `ERR_CONNECTION_REFUSED` error when running `clasp login`:
+```
+Error: Failed to launch the browser process!
+ERR_CONNECTION_REFUSED
+```
+
+**This happens because:**
+- Port 8085 (default) is already in use or blocked
+- Firewall is blocking the connection
+- Antivirus software is interfering
+
+### Solutions:
+
+1. **Try manual authentication (most reliable - avoids port issues)**:
 ```bash
 npx @google/clasp login --no-localhost
 # Copy the code from browser and paste in terminal
@@ -109,6 +122,7 @@ npx @google/clasp login --no-localhost
 2. **Change port if 8085 is blocked**:
 ```bash
 npx @google/clasp login --port 9000
+# Or try other ports: 8086, 8087, 3000, etc.
 ```
 
 3. **Clear old credentials and retry**:
