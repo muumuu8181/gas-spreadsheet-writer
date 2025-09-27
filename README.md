@@ -1,76 +1,76 @@
-# GAS Spreadsheet Writer - 整理済みプロジェクト
+# GAS Spreadsheet Writer
 
-Google Apps Script（GAS）とCLASPを使用したスプレッドシート自動化ツール集です。
+Google Apps Script (GAS) and CLASP-based spreadsheet automation tools.
 
-## 📁 フォルダ構成
+## 📁 Folder Structure
 
-### 01_コード/
-GASスクリプトと実行用コード
-- `multi-function-service.gs` - タスク管理＋自動分析サービス
-- `COPY_THIS_TO_SHEETS_GAS.gs` - シートへコピー用スクリプト
-- `IMPROVED_SIDEBAR.gs` - サイドバー機能
-- `direct-gas-execute.cjs` - 直接実行用Node.jsスクリプト
-- `execute-gas-now.cjs` - 即時実行用スクリプト
-- `CLICK_DEMO.html` - クリックデモHTML
-- `Code.gs` - メインコード
-- `appsscript.json` - GAS設定ファイル
-- `.clasp.json` - CLASP設定
+### 01_code/
+GAS scripts and execution code
+- `multi-function-service.gs` - Task management + auto analysis service
+- `COPY_THIS_TO_SHEETS_GAS.gs` - Script for copying to sheets
+- `IMPROVED_SIDEBAR.gs` - Sidebar functionality
+- `direct-gas-execute.cjs` - Direct execution Node.js script
+- `execute-gas-now.cjs` - Immediate execution script
+- `CLICK_DEMO.html` - Click demo HTML
+- `Code.gs` - Main code
+- `appsscript.json` - GAS configuration
+- `.clasp.json` - CLASP configuration
 
-### 02_ドキュメント/
-技術文書とガイド
-- 統合版ドキュメント（01-04）
-  - `01_GAS_AI_COMPLETE_STRATEGY.md` - ビジネス戦略
-  - `02_TECHNICAL_COMPLETE_GUIDE.md` - 技術ガイド
-  - `03_QUICK_REFERENCE.md` - クイックリファレンス
-  - `04_TEMPLATE_CATALOG.md` - テンプレートカタログ
-- CLASP関連ガイド
-- GAS関連ドキュメント
-- アーカイブ済み旧ドキュメント
+### 02_docs/
+Technical documentation and guides
+- Core documentation (01-04)
+  - `01_GAS_AI_COMPLETE_STRATEGY.md` - Business strategy
+  - `02_TECHNICAL_COMPLETE_GUIDE.md` - Technical guide
+  - `03_QUICK_REFERENCE.md` - Quick reference
+  - `04_TEMPLATE_CATALOG.md` - Template catalog
+- CLASP guides
+- GAS documentation
+- Archived legacy documents
 
-### 03_テスト実証/
-テスト結果と検証レポート
-- `VERIFICATION_REPORT.md` - 検証レポート
-- `SHEET_DATA_ACCESS_TEST_RESULTS.md` - データアクセステスト結果
+### 03_tests/
+Test results and verification reports
+- `VERIFICATION_REPORT.md` - Verification report
+- `SHEET_DATA_ACCESS_TEST_RESULTS.md` - Data access test results
 
-### 04_配布テンプレート/
-配布用テンプレートとガイド
-- `distribution-demo/` - 配布デモ
-- `distribution-ready/` - 配布準備済み
-- `ZERO_SETUP_DISTRIBUTION_GUIDE.md` - ゼロセットアップ配布ガイド
-- `AUTO_DEPLOY.md` - 自動デプロイ
-- `DISTRIBUTION_TROUBLESHOOT.md` - 配布トラブルシューティング
+### 04_templates/
+Distribution templates and guides
+- `distribution-demo/` - Distribution demo
+- `distribution-ready/` - Ready for distribution
+- `ZERO_SETUP_DISTRIBUTION_GUIDE.md` - Zero setup distribution guide
+- `AUTO_DEPLOY.md` - Auto deployment
+- `DISTRIBUTION_TROUBLESHOOT.md` - Distribution troubleshooting
 
-### 05_実行ツール/
-テストとAPI実行ツール
-- `sheets-api-test/` - Sheets APIテスト
-- `test-clasp-upload/` - CLASPアップロードテスト
-- `test-clone/` - クローンテスト
+### 05_tools/
+Testing and API execution tools
+- `sheets-api-test/` - Sheets API test
+- `test-clasp-upload/` - CLASP upload test
+- `test-clone/` - Clone test
 
-### 06_ビジネス資料/
-ビジネス向け資料
-- `SERVICE_READY.md` - サービス準備完了
-- `UI_BUTTON_DEMO.md` - UIボタンデモ
+### 06_business/
+Business resources
+- `SERVICE_READY.md` - Service ready documentation
+- `UI_BUTTON_DEMO.md` - UI button demo
 
-## 🚀 クイックスタート
+## 🚀 Quick Start
 
-1. **コードの確認**: `01_コード/` フォルダ内のスクリプトを確認
-2. **ドキュメント参照**: `02_ドキュメント/03_QUICK_REFERENCE.md` でクイックスタート
-3. **テスト実行**: `05_実行ツール/` のツールでテスト
+1. **Check code**: Review scripts in `01_code/`
+2. **Read docs**: Quick start with `02_docs/03_QUICK_REFERENCE.md`
+3. **Run tests**: Test with tools in `05_tools/`
 
-## 📖 主要ドキュメント
+## 📖 Key Documentation
 
-最初に読むべき順番：
-1. `02_ドキュメント/01_GAS_AI_COMPLETE_STRATEGY.md` - 全体戦略
-2. `02_ドキュメント/02_TECHNICAL_COMPLETE_GUIDE.md` - 技術詳細
-3. `02_ドキュメント/03_QUICK_REFERENCE.md` - 実践ガイド
+Reading order:
+1. `02_docs/01_GAS_AI_COMPLETE_STRATEGY.md` - Overall strategy
+2. `02_docs/02_TECHNICAL_COMPLETE_GUIDE.md` - Technical details
+3. `02_docs/03_QUICK_REFERENCE.md` - Practical guide
 
-## 💡 特徴
+## 💡 Features
 
-- ✅ Windows環境でのCLASP動作確認済み（`npx @google/clasp` 使用）
-- ✅ E5セルへの書き込みテスト成功
-- ✅ Web APIとしてのデプロイ検証済み
-- ✅ 40種類以上のビジネステンプレート収録
+- ✅ CLASP verified on Windows (`npx @google/clasp`)
+- ✅ E5 cell write test successful
+- ✅ Web API deployment verified
+- ✅ 40+ business templates included
 
-## バージョン
+## Version
 
-v0.01 - 初期リリース（整理済み版）
+v0.01 - Initial release (organized)
